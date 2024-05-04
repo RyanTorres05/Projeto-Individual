@@ -1,0 +1,450 @@
+:root {
+    --color-primary: #917758;
+    --color-secondary: #3c2915;
+    --color-primary-ligh: #f5eee6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1770px;
+}
+
+
+/************
+*    HOME
+*************/
+
+.home {
+    background-repeat: no-repeat;
+    background-image: url(images/bg-home.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.home .header {
+    padding: 30px 0;
+}
+
+.home .header .nav {
+    justify-content: center;
+    display: flex;
+}
+
+.home .header .nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.home .header .nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    margin: 0 10px;
+}
+
+.home .header .nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 19px 32px
+}
+
+.home .header .nav ul li a:hover {
+    border-bottom: solid 1px var(--color-primary);
+    color: var(--color-primary)
+}
+
+.home .header .nav ul li .logo {
+    margin: 0 50px;
+}
+
+/***************
+* HOME - BANNER
+****************/
+
+.home .banner {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 55%; 
+    left: 50%;
+    height: 250px;
+    width: 750px;
+    margin-left: -375px;
+    margin-top: -155px;
+}
+
+.home .banner .p-banner {
+    color: var(--color-primary);
+    font-style: italic;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+.home .banner h1 {
+    font-size: 130px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.home .banner .slogan1 {
+    display: block;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 14px;
+}
+
+.home .banner .bigode {
+    margin: auto;
+    display: block;
+    margin-top: 20px ;
+}
+
+
+/*********
+* ABOUT
+*********/
+
+.about {
+    background-color: var(--color-primary);
+    height: 100vh;
+}
+
+.about .container {
+    display: flex;
+    height: 90vh;
+    width: 100vw;
+}
+
+.about .timing {
+    width: 33%;
+    height: 780px;
+    background-image: url(images/brush-big.jpg);
+    background-repeat: no-repeat;
+    padding: 20px;
+    position: relative;
+    top: -50px;
+}
+
+.about .timing .overlay {
+    background: rgba(0, 0, 0, 0.8);
+    width: 338px;
+    text-align: center;
+    padding: 40px 20px;
+    height: 723px;
+    
+}
+
+.about .timing .overlay .icon-cut {
+    width: 50px;
+
+}
+
+.about .timing .overlay .horarios {
+    text-transform: uppercase;
+    color: var(--color-primary);
+    font-size: 35px;
+    border-bottom: solid 1px var(--color-primary);
+    width: fit-content;
+    margin: 0 auto 30px auto;
+}
+
+.about .timing .text {
+    margin: 10px 0;
+}
+
+
+.about .timing .text:after {
+    content: '•';
+    display: block;
+    font-size: 25px;
+    color: white;
+    margin-top: 10px;
+}
+
+.about .timing .text:last-of-type:after {
+    content: '|';
+}
+
+.about .timing .text h4 {
+    color: grey;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.about .timing span {
+    color: white;
+    font-size: 15px;
+    display: block;
+}
+
+.about .experience {
+    width: 66%;
+    color: white;
+    margin: 50px 0 0 20px;
+}
+
+.about .experience h2 {
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.about .experience h2:after {
+    display: block;
+    content: '';
+    width: 100px;
+    height: 3px;
+    background-color: #a38f78;
+    margin: 20px 0;
+}
+
+.about .experience .text {
+    display: flex;
+}
+
+
+/************
+* SERVICES
+************/
+
+.container2 {
+    height: 100vh;
+    width: 1300px;
+    margin: auto;
+    
+}
+
+.services {
+    padding: 100px 0;
+    text-align: center;
+    background-color:var(--color-primary-ligh) ;
+}
+
+.services h2 {
+    font-size: 50px;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+
+.services .boxes {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.services .box {
+    border: 3px solid var(--color-primary);
+    padding: 60px 40px;
+    margin: 30px;
+}
+
+.services .box h4 {
+    margin-top: 10px;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+/**************
+* APPOINTMENT
+***************/
+
+.appointment {
+    padding: 100px 0; 
+    background-color: var(--color-primary);
+    height: 100vh;
+    width: 100vw;
+    background-image: url(images/chair-ic.png);
+    background-repeat: no-repeat;
+    background-size: 300px;
+    background-position: right bottom;
+}
+
+.appointment h2 {
+    color: var(--color-primary-ligh);
+    font-weight: 400;
+    font-size: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    
+}
+
+.appointment img {
+    display: block;
+    margin: auto;
+}
+
+.appointment form {
+    margin-top: 65px;
+}
+
+.appointment .personal-data {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.appointment  input-wrapper {
+    width: 100%;
+    margin-right: 30px;
+}
+
+.appointment  label {
+    display: block;
+    color: var(--color-primary-ligh);
+    font: 14px;
+    margin-bottom: 2px;
+}
+
+.appointment .personal-data input,
+.appointment .personal-data select,
+.appointment textarea {
+    padding: 10px;
+    border: none;
+    outline: none;
+    width: 100%;
+   border-radius: 3px;
+}
+
+.appointment textarea  {
+    height: 100px;
+}
+
+.appointment button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 14px 40px;
+    border: none;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*********
+* GALLERY
+**********/
+
+.gallery {
+    padding: 80px 0;
+    background-color: var(--color-primary-ligh);
+    height: 100vh;
+}
+
+.gallery h2 {
+    color: var(--color-secondary);
+    font-weight: 400;
+    font-size: 50px;
+    margin-bottom: 10px;
+    text-align: center;  
+}
+
+.gallery img {
+    margin: 0 auto;
+    display: block;
+}
+
+.gallery .gallery-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 80vh;
+    width: 900px;
+    margin: 50px auto;
+}
+
+.gallery .gallery-wrapper div {
+    border: 10px solid var(--color-primary);
+    margin: 6px;
+    width: 33%;
+}
+
+.gallery .gallery-wrapper div img {
+    width: 100%;
+}
+
+ /***********
+* LOCATION
+************/
+
+ .location {
+    height: 100vh;
+    padding: 100px 0;
+    background-image: url(images/bg-location.jpg);
+    background-size: cover;
+}
+
+.location .head {
+    display: flex;
+    justify-content: space-between;
+    background-color: #191919;
+    padding: 40px;
+    width: 100%;
+}
+
+.location .head .info {
+    display: flex;
+    align-items: center;
+}
+
+.location .head .info .icon {
+    display: flex;
+    margin-right: 10px;
+    border: 1px solid var(--color-primary);
+    border-radius: 100%;
+    padding: 10px;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+
+}
+
+.location .head .info  .text span {
+    display: block;
+    font-size: 13px;
+}
+
+.location .head .info  .text span:first-child {
+    color: rgb(160, 158, 158);
+}
+
+.location .head .info  .text span:last-child {
+    color: white;
+}
+
+.location .map {
+    width: 100%;
+}
+
+.location .map iframe {
+    width: 100%;
+}
+
+ /*********
+* FOOTER
+***********/
+
+.footer {
+    background-color: #191919;
+    color: white;
+    font-size: 14px;
+    padding: 40px;
+    text-align: center;
+}
