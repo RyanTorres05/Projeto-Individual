@@ -47,6 +47,7 @@ html {
     justify-content: center;
     width: 170px;
     margin: 0 10px;
+    padding-top: 5px;
 }
 
 .home .header .nav ul li a {
@@ -58,11 +59,32 @@ html {
     
 }
 
-.home .header .nav ul li a:hover {
-    border-bottom: white;
-    color: rgb(138, 115, 115);
-}
-
+.button {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .button::before {
+    margin-left: auto;
+  }
+  
+  .button::after, button::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #ffffff;
+    display: block;
+    transition: 0.5s;
+  }
+  
+  .button:hover::after, button:hover::before {
+    width: 100%;
+  }
 
 
 /*CONTAINER*/
@@ -106,6 +128,13 @@ html {
     
 }
 
+h3 {
+    color: white;
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 70px;
+}
+
 .albuns {
     bottom: 100px;
     background: linear-gradient(180deg, rgba(89,84,84,1) 0%, rgba(79,74,74,1) 19%, rgba(68,63,63,1) 41%, rgba(57,53,53,1) 62%, rgba(47,43,43,1) 82%, rgba(38,34,34,1) 100%);
@@ -115,7 +144,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top: 70px;
+    margin-top: 0px;
     margin-inline: 20px;
     border: 1px solid white;
 }
@@ -148,5 +177,32 @@ html {
 .text-albuns img {
     margin: 10px;
 }
+
+.card {
+    box-sizing: border-box;
+    
+    border: 1px solid rgb(24, 23, 26);
+    box-shadow: 12px 17px 51px rgba(85, 67, 117, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+  }
+  
+  .card:hover {
+    border: 1px solid rgb(108, 59, 245);
+    transform: scale(1.05);
+  }
+  
+  .card:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
 
 /**/
