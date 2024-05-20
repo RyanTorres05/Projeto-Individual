@@ -2,64 +2,67 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-button {
+  }
+  
+  button {
     cursor: pointer;
-}
-
-body {
+  }
+  
+  body {
     background-color: #121214;
-    color: white;
+    color: #fff;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.container {
+  }
+  
+  .container {
     background-color: #121214;
     width: 90%;
     max-width: 800px;
-
+  
     border: 2px solid #e1e1e6;
     border-radius: 6px;
     padding: 16px;
     box-shadow: 0 0 2px 2px;
-
+  
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.questoes-container {
+  }
+  
+  .questions-container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 24px;
-}
-
-.questao {
+  }
+  
+  .question {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-}
-
-.resposta-container {
+  }
+  
+  .answers-container {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-}
-
-.proxima-pergunta {
+  }
+  
+  .answer:disabled {
+    cursor: not-allowed;
+  }
+  
+  .next-question {
     margin-top: 32px;
-}
-
-.button {
+  }
+  
+  .button {
     background-color: #4863f7;
     color: #fff;
     font-size: 16px;
@@ -68,15 +71,34 @@ body {
     border-radius: 6px;
     height: 48px;
     padding: 0 32px;
-
-    transition: filter 0.2s;
-}
-
-.button:hover {
+  
+    transition: filter 0.1s;
+  }
+  
+  .button:not(:disabled):hover {
     filter: brightness(0.8);
-}
-
-.hide {
+  }
+  
+  /* Finish game */
+  .final-message {
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .final-message span {
+    display: block;
+    margin-top: 8px;
+  }
+  
+  /* General styles */
+  .hide {
     display: none;
-}
-
+  }
+  
+  .correct {
+    background-color: #049b48;
+  }
+  
+  .incorrect {
+    background-color: #a10101;
+  }
