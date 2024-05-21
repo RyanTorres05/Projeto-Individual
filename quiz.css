@@ -9,7 +9,7 @@
   }
   
   body {
-    background-color: #121214;
+    background: linear-gradient(180deg, rgba(108,108,108,1) 0%, rgba(96,93,93,1) 21%, rgba(84,82,82,1) 41%, rgba(73,70,70,1) 61%, rgba(63,59,59,1) 79%, rgba(50,45,45,1) 100%);
     color: #fff;
     height: 100vh;
     display: flex;
