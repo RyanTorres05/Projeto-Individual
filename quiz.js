@@ -109,64 +109,66 @@ function finishGame() {
 
 const questions = [
   {
-    question: "Dentro de qual elemento HTML colocamos o JavaScript?",
+    question: "Qual é a música mais famosa do Yunk Vino ?",
     answers: [
-      { text: "<javascript>", correct: false },
-      { text: "<js>", correct: false },
-      { text: "<script>", correct: true },
-      { text: "<scripting>", correct: false }
+      { text: "Dialogo", correct: false },
+      { text: "30 Dias", correct: false },
+      { text: "Leans.pt2", correct: true },
+      { text: "Vlife", correct: false }
     ]
   },
   {
-    question: "Onde é o lugar correto para inserir JavaScript?",
+    question: "Qual artista o Yunk Vino possue mais feats ?",
     answers: [
-      { text: "Tanto no <head> quanto no <body> está correto", correct: true },
-      { text: "No <body>", correct: false },
-      { text: "No <head>", correct: false },
-      { text: "Em outro lugar", correct: false }
+      { text: "Igu", correct: true },
+      { text: "Veigh", correct: false },
+      { text: "Kyan", correct: false },
+      { text: "Sidoka", correct: false }
     ]
   },
   {
-    question: 'Qual é a sintaxe correta para se referir a um script externo chamado "xxx.js"',
+    question: 'Em que ano o Yunk Vino lançou 3 álbuns ?',
     answers: [
-      { text: '<script src="xxx.js">', correct: true },
-      { text: '<script href="xxx.js">', correct: false },
-      { text: '<script name="xxx.js">', correct: false },
-      { text: "Nenhuma das alternativas", correct: false }
+      { text: '2019', correct: false },
+      { text: '2022', correct: false },
+      { text: '2021', correct: false },
+      { text: "2020", correct: true }
     ]
   },
   {
-    question: 'O arquivo JavaScript externo deve conter a tag <script>',
+    question: 'Qual o nome do álbum que o Yunk Vino tem junto com o Igu ?',
     answers: [
-      { text: "Verdadeiro", correct: false },
-      { text: "Falso", correct: true }
+      { text: "237", correct: false },
+      { text: "LA", correct: false },
+      { text: "Cypherpunk", correct: false },
+      { text: "Workstars", correct: true }
     ]
   },
   {
-    question: 'Como escrever "Hello World" numa caixa de alerta?',
+    question: 'Qual o único álbum do Yunk Vino que tem uma continuação ?',
     answers: [
-      { text: 'msg("Hello World");', correct: false },
-      { text: 'alert("Hello World");', correct: true },
-      { text: 'msgBox("Hello World");', correct: false },
-      { text: 'alertBox("Hello World");', correct: false }
+      { text: 'MidnightCalls', correct: false },
+      { text: '237', correct: true },
+      { text: 'OFF', correct: false },
+      { text: 'M.A.D', correct: false }
     ]
   },
   {
-    question: 'Como podemos criar uma função no JavaScript?',
+    question: 'Qual é a gravadora do Yunk Vino ?',
     answers: [
-      { text: 'function:myFunction()', correct: false },
-      { text: 'function myFunction()', correct: true },
-      { text: 'function = myFunction()', correct: false },
-      { text: 'Nenhum desses códigos criaria uma função', correct: false }
+      { text: 'Pineapple', correct: false },
+      { text: 'Labbel Records', correct: true },
+      { text: '30PRAUM', correct: false },
+      { text: 'MainStreet', correct: false }
     ]
   },
   {
-    question: 'Como podemos chamar uma função chamada "minhaFuncao"?',
+    question: 'Qual é o nome verdadeiro no Yunk Vino ?',
     answers: [
-      { text: 'call minhaFuncao()', correct: false },
-      { text: 'call function minhaFuncao()', correct: false },
-      { text: 'Nenhum desses códigos chamaria essa função', correct: false },
-      { text: 'minhaFuncao()', correct: true },
+      { text: 'Rafael Silva', correct: false },
+      { text: 'Dhiego Salinas', correct: false },
+      { text: 'Gabriel Sales', correct: false },
+      { text: 'Marcos Vinicius', correct: true },
     ]
   },
 ]
