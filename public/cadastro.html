@@ -41,14 +41,15 @@
                     <form action="">
                       <p class="form-login">Cadastro</p>
                       <div class="input-box">
+                        <input required="" placeholder="Nome" type="text" id="nome_input"/>
+                      </div>
+                      <div class="input-box">
                         <input required="" placeholder="Email" type="text" id="email_input"/>
                       </div>
                       <div class="input-box">
                         <input required="" placeholder="Senha" type="password" id="senha_input" />
                       </div>
-                      <div class="input-box">
-                        <input required="" placeholder="Confirme sua senha" type="password" id="confirmacao_senha_input" />
-                      </div>
+                 
                       <button class="btn" type="submit" onclick="cadastrar()">Cadastre-se</button>
                      
                     </form>
@@ -66,13 +67,14 @@
       // var nomeVar = nome_input.value;
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
-      var confirmacaoSenhaVar = confirmacao_senha_input.value;
+      var nomeVar = nome_input.value;
+
       // var empresaVar = listaEmpresas.value
       if (
 
         emailVar == "" ||
-        senhaVar == "" ||
-        confirmacaoSenhaVar == "" 
+        senhaVar == "" 
+     
       ) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML =
@@ -81,9 +83,9 @@
         finalizarAguardar();
         return false;
       } 
-      // else {
-      //   setInterval(sumirMensagem, 5000);
-      // }
+      else {
+        setInterval(sumirMensagem, 5000);
+      }
   
       // Enviando o valor da nova input
       fetch("/usuarios/cadastrar", {
