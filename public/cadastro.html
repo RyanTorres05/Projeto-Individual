@@ -66,6 +66,7 @@
       // Agora vá para o método fetch logo abaixo
       // var nomeVar = nome_input.value;
       var nomeVar = nome_input.value;
+      console.log(nomeVar)
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
 
@@ -77,14 +78,9 @@
         senhaVar == "" 
      
       )
-      //  {
-      //   cardErro.style.display = "block";
-      //   mensagem_erro.innerHTML =
-      //     "(Mensagem de erro para todos os campos em branco)";
-  
-      //   finalizarAguardar();
-      //   return false;
-      // } 
+       {
+        alert("Erro")
+      } 
       // else {
       //   setInterval(sumirMensagem, 5000);
       // }
@@ -107,13 +103,13 @@
           console.log("resposta: ", resposta);
   
           if (resposta.ok) {
-            cardErro.style.display = "block";
+            // cardErro.style.display = "block";
   
-            mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            // mensagem_erro.innerHTML =
+            //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
   
             setTimeout(() => {
-              window.location = "index.html";
+              window.location = "../login.html";
             }, "2000");
   
             limparFormulario();
