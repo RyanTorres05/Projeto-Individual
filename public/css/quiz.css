@@ -91,6 +91,10 @@ html {
 
   /*QUIZ*/
 
+  .box-quiz {
+    position: relative;
+  }
+
   h2 {
     color: white;
   }
@@ -103,15 +107,16 @@ html {
       rgb(55, 57, 61) 97%
     );
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 680px;
     min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    left: 20px;
     margin-top: 150px;
+    position: absolute;
   }
   
   .content {
@@ -119,6 +124,7 @@ html {
     flex-direction: column;
     width: 100%;
     gap: 10px;
+    padding: 40px;
   }
   
   .spnQtd {
@@ -148,8 +154,8 @@ html {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #1801e9;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
   }
   
   .textFinish {
