@@ -38,7 +38,7 @@
             </header>
             <div id="login">
                 <div class="wrapper">
-                    <form action="">
+                    <div action="">
                       <p class="form-login">Login</p>
                       <div class="input-box">
                         <input required="" placeholder="Email" type="text" id="email_input" />
@@ -50,7 +50,7 @@
                       <div class="register-link">
                         <p>Não tem uma conta ? <a href="cadastro.html">Cadastre-se</a></p>
                       </div>
-                    </form>
+                    </div>
                   </div>
             </div>
 </body>
@@ -89,6 +89,7 @@
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
+            window.location = "./quiz.html";
             if (resposta.ok) {
                 console.log(resposta);
 
@@ -100,7 +101,6 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "../index.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
