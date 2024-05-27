@@ -122,7 +122,7 @@ html {
 
 #sobre {
     background: linear-gradient(180deg, rgba(108,108,108,1) 0%, rgba(96,93,93,1) 21%, rgba(84,82,82,1) 41%, rgba(73,70,70,1) 61%, rgba(63,59,59,1) 79%, rgba(50,45,45,1) 100%);
-    height: 100vh;
+    height: 150vh;
     position: relative;
 }
 
@@ -208,4 +208,44 @@ h3 {
     transform: scale(0.95) rotateZ(1.7deg);
   }
 
-/**/
+/*Sobre2*/
+
+.containerSobre {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.textBem p {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    font-size: 24px;
+    
+}
+
+.saudebem img {
+    
+}
+
+.imgBem {
+    margin-left: 110px;
+    height: 150px;
+
+}
+
+.div_container {
+    background-color: #222020;
+}
+
+.footer{
+    height: 70px;
+    color: #ffffff;
+    font-size: 15px; 
+    padding-bottom: 20px;
+   
+}
+.footer {
+    text-align: center;
+
+}
+
