@@ -89,8 +89,8 @@
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
-            window.location = "./introducao.html";
             if (resposta.ok) {
+                window.location = "./introducao.html";
                 console.log(resposta);
 
                 resposta.json().then(json => {
