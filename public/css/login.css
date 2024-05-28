@@ -109,6 +109,7 @@ html {
     margin-inline: 360px;
     position: absolute;
     top: 165px;
+    border: 2px solid rgb(194, 185, 185);
   }
 
   .form-login {
