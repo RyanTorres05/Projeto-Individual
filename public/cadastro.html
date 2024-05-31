@@ -49,16 +49,7 @@
                       <div class="input-box">
                         <input required="" placeholder="Senha" type="password" id="senha_input" />
                       </div>
-                      <div class="input-box">
-                        <select id="select_album">
-                          <option value="off">OFF</option>
-                          <option value="237">237</option>
-                          <option value="237deluxe">237 Deluxe</option>
-                          <option value="midnightcalls">MidnightCalls</option>
-                          <option value="mad">M.A.D</option>
-                          <option value="workstars">WorkStars</option>
-                        </select>
-                      </div>
+                      
 
                  
                       <button class="btn" type="submit" onclick="cadastrar()">Cadastre-se</button>
@@ -71,89 +62,64 @@
 
 <script>
     function cadastrar() {
-      // aguardar();
-  
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
-      // var nomeVar = nome_input.value;
-      var nomeVar = nome_input.value;
-      console.log(nomeVar)
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
+  // Pega os valores dos campos de input
+  var nomeVar = nome_input.value;
+  var emailVar = email_input.value;
+  var senhaVar = senha_input.value;
 
-      // var empresaVar = listaEmpresas.value
-      if (
+  // Verificação de campos vazios
+  if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+    alert("Por favor, preencha todos os campos.");
+    return false;
+  }
 
-        nomeVar == "" ||
-        emailVar == "" ||
-        senhaVar == "" 
-     
-      )
-       {
-        alert("Erro")
-      } 
-      // else {
-      //   setInterval(sumirMensagem, 5000);
-      // }
-  
-      // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          nomeServer: nomeVar,
-          emailServer: emailVar,
-          senhaServer: senhaVar
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
-  
-          window.location = "./login.html";
-          if (resposta.ok) {
-            // cardErro.style.display = "block";
-  
-            mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-  
-            setTimeout(() => {
-            }, "2000");
-  
-            // limparFormulario();
-            // finalizarAguardar();
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-          // finalizarAguardar();
-        });
-  
-      return false;
+  // Verificação se o nome contém mais que 3 caracteres
+  if (nomeVar.length <= 3) {
+    alert("O nome deve conter mais que 3 caracteres.");
+    return false;
+  }
+
+   // Verificação se o email contém @ e .
+   if (!emailVar.includes("@") || !emailVar.includes(".")) {
+    alert("Por favor, insira um email válido.");
+    return false;
+  }
+
+  if (senhaVar.length <= 6) {
+    alert("A senha deve conter mais que 5 caracteres.");
+    return false;
+  }
+
+  // Enviando o valor da nova input
+  fetch("/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      // Crie um atributo que recebe o valor recuperado aqui
+      // Agora vá para o arquivo routes/usuario.js
+      nomeServer: nomeVar,
+      emailServer: emailVar,
+      senhaServer: senhaVar
+    }),
+  })
+  .then(function (resposta) {
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+      window.location = "./login.html";
+      mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+      setTimeout(() => {
+      }, 2000);
+    } else {
+      throw "Houve um erro ao tentar realizar o cadastro!";
     }
-  
-    // function listar() {
-    //   fetch("/empresas/listar", {
-    //     method: "GET",
-    //   })
-    //     .then(function (resposta) {
-    //       resposta.json().then((empresas) => {
-    //         empresas.forEach((empresa) => {
-    //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-    //         });
-    //       });
-    //     })
-    //     .catch(function (resposta) {
-    //       console.log(`#ERRO: ${resposta}`);
-    //     });
-    // }
-  
-    // function sumirMensagem() {
-    //   cardErro.style.display = "none";
-    // }
+  })
+  .catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+  });
+
+  return false;
+}
   </script>

@@ -54,12 +54,48 @@ function loadQuestion() {
     </button>
     `;
 
+    cadastrarPontuacao();
+    
     answers.appendChild(div);
   });
 
   document.querySelectorAll(".answer").forEach((item) => {
     item.addEventListener("click", nextQuestion);
   });
+}
+
+function cadastrarPontuacao() {
+
+  const idUsuario = sessionStorage.ID_USUARIO
+     
+  fetch("/quizroutes/cadastrarPontuacao", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      // crie um atributo que recebe o valor recuperado aqui
+      // Agora vá para o arquivo routes/usuario.js
+      idUsuarioServer: idUsuario,
+      qtdAcertosServer: questionsCorrect,
+      
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+       
+      } else {
+        throw "Houve um erro ao tentar realizar o cadastro!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      // finalizarAguardar();
+    });
+
+  return false;
 }
 
 loadQuestion();

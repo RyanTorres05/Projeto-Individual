@@ -63,67 +63,78 @@
 <script>
 
 
-    function entrar() {
-        // aguardar();
-        
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+function entrar() {
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
 
-        if (emailVar == "" || senhaVar == "") {
-            finalizarAguardar();
-            return false;
+    if (emailVar == "" || senhaVar == "") {
+        // finalizarAguardar();
+
+        // Exibir mensagens de erro para campos vazios
+        if (emailVar == "") {
+            alert("O campo de e-mail não pode estar vazio.");
         }
-        
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                window.location = "./introducao.html";
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-
-                    setTimeout(function () {
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-                alert("erro erro")
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
+        if (senhaVar == "") {
+            alert("O campo de senha não pode estar vazio.");
+        }
 
         return false;
     }
+    
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
 
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            window.location = "./introducao.html";
+            console.log(resposta);
+            
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.idUsuario;
+
+
+
+                console.log(json.idUsuario);
+                setTimeout(function () {
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+            alert("Houve um erro ao tentar realizar o login.");
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+        alert("Ocorreu um erro ao tentar realizar o login. Por favor, tente novamente mais tarde.");
+    })
+
+    return false;
+}
+
+  
 
 </script>
