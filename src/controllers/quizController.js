@@ -3,7 +3,7 @@ var quizModel = require("../models/quizModel");
 function cadastrarPontuacao(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var idUsuario = req.body.idUsuarioServer;
-    var qtdAcertos = req.body.questionsCorrect;
+    var qtdAcertos = req.body.qtdAcertosServer;
    
     // Faça as validações dos valores
     
