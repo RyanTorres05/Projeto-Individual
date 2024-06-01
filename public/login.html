@@ -80,8 +80,34 @@ function entrar() {
 
       finalizarAguardar();
       return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
     }
     
+
+    if (emailVar.indexOf("@") === -1 || emailVar.indexOf(".") === -1) {
+
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Mensagem de erro para email inválido)";
+        finalizarAguardar();
+        return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if (senhaVar.length < 5) {
+
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Sua senha deve conter no mínimo 5 caracteres)";
+        finalizarAguardar();
+        return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+
+
+
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
 
@@ -133,6 +159,10 @@ function entrar() {
     })
 
     return false;
+
+    function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
 }
 
   
