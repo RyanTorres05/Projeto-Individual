@@ -8,5 +8,8 @@ router.post("/cadastrarPontuacao", function (req, res) {
     quizController.cadastrarPontuacao(req, res);
 })
 
+router.get("/fulano", function (req, res) {
+    console.log("fulano")
+});
 
 module.exports = router;

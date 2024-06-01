@@ -165,20 +165,20 @@
     // //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     // //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico() {
-
-        fetch(`/medidas/ultimas`, { cache: 'no-store' }).then(function (response) {
+        fetch("/medidas/ultimas", { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta);
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
+                    response.json().then(function (resposta) {
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                            resposta.reverse();
+                    
+                            plotarGrafico(resposta);
+                    
+                        });
+                    } else {
+                            console.error('Nenhum dado encontrado ou erro na API');
+                        }
+                    
+            })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
@@ -187,31 +187,95 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idAquario) {
+    function plotarGrafico(resposta) {
 
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
-        let labels = [];
+        let labels = [
+                'Acerto 0',
+                'Acerto 1',
+                'Acerto 2',
+                'Acerto 3',
+                'Acerto 4',
+                'Acerto 5',
+                'Acerto 6',
+                'Acerto 7',
+                'Acerto 8'
+                
+            ];
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: labels,
-            datasets: [{
-                label: '',
+            datasets: [
+            {
                 data: [],
-                fill: false,
-                // borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
+                borderWidth: 1,
+                backgroundColor: [
+                    'Purple',
+                ]
             },
-            // {
-            //     label: 'Temperatura',
-            //     data: [],
-            //     fill: false,
-            //     borderColor: 'rgb(199, 52, 52)',
-            //     tension: 0.1
-            // }
+            {
+                data: [],
+                borderWidth: 1,
+                backgroundColor: [
+                    'red',
+                ]
+            },
+            {
+                data: [],
+                borderWidth: 1,
+                backgroundColor: [
+                    'blue',
+                ]
+            },
+            {
+                data: [],
+                borderWidth: 1,
+                backgroundColor: [
+                    'white',
+                ]
+            },
+            {
+                data: [],
+                borderWidth: 1,
+                backgroundColor: [
+                    'black',
+                ]
+            },
+            {
+                data: [],
+                borderWidth: 1,
+                backgroundColor: [
+                    'pink',
+                ]
+            },
+            {
+                data: [],
+                borderWidth: 1,
+                backgroundColor: [
+                    'orange',
+                ]
+            },
+            {
+                data: [],
+                borderWidth: 1,
+                backgroundColor: [
+                    'yellow',
+                ]
+            },
+            {
+                data: [],
+                borderWidth: 1,
+                backgroundColor: [
+                    'green',
+                ]
+            }
+            
         ]
+            
+        
         };
 
         console.log('----------------------------------------------')
@@ -221,9 +285,25 @@
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-
-            labels.push(registro.momento_grafico);
-            
+            console.log("olá",registro)
+            if(registro.qtdAcertos == 0){
+                dados.datasets[0].data.push(registro.quantidade);
+            } else if (registro.qtdAcertos == 1) {
+                dados.datasets[1].data.push(registro.quantidade);
+            } else if (registro.qtdAcertos == 2) {
+                dados.datasets[2].data.push(registro.quantidade);
+            } else if (registro.qtdAcertos == 3) {
+                dados.datasets[3].data.push(registro.quantidade);
+            } else if (registro.qtdAcertos == 4) {
+                dados.datasets[1].data.push(registro.quantidade);
+            } else if (registro.qtdAcertos == 5) {
+                dados.datasets[5].data.push(registro.quantidade);
+            } else if (registro.qtdAcertos == 6) {
+                dados.datasets[6].data.push(registro.quantidade);
+            } else if (registro.qtdAcertos == 7) {
+                dados.datasets[7].data.push(registro.quantidade);
+            } 
+          
         }
 
         console.log('----------------------------------------------')
@@ -236,7 +316,7 @@
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'pie',
+            type: 'line',
             data: dados,
         };
 
@@ -310,4 +390,6 @@
     //         });
 
     // }
+    obterDadosGrafico()
+
 </script>

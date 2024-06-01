@@ -2,7 +2,10 @@ var database = require("../database/config");
 
 function buscarUltimasMedidas() {
 
-    var instrucaoSql = `SELECT * from pontuacao;`;
+    var instrucaoSql = `SELECT p.qtdAcertos, u.nome, COUNT(*) as quantidade
+    FROM pontuacao p
+    JOIN usuario u ON p.fkUsuario = u.idUsuario
+    GROUP BY p.qtdAcertos, u.nome;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

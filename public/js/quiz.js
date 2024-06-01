@@ -1,3 +1,6 @@
+console.log("hello")
+
+
 const question = document.querySelector(".question");
 const answers = document.querySelector(".answers");
 const spnQtd = document.querySelector(".spnQtd");
@@ -5,6 +8,7 @@ const textFinish = document.querySelector(".finish span");
 const content = document.querySelector(".content");
 const contentFinish = document.querySelector(".finish");
 const btnRestart = document.querySelector(".finish button");
+document.querySelector(".finalizar").addEventListener("click", cadastrarPontuacao);
 
 import questions from "./questions.js";
 
@@ -17,12 +21,17 @@ btnRestart.onclick = () => {
 
   currentIndex = 0;
   questionsCorrect = 0;
+  console.log(questionsCorrect);
   loadQuestion();
 };
+
+
 
 function nextQuestion(e) {
   if (e.target.getAttribute("data-correct") === "true") {
     questionsCorrect++;
+    console.log(questionsCorrect);
+    // cadastrarPontuacao();
   }
 
   if (currentIndex < questions.length - 1) {
@@ -32,6 +41,7 @@ function nextQuestion(e) {
     finish();
   }
 }
+
 
 function finish() {
   textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${questions.length} `;
@@ -54,7 +64,7 @@ function loadQuestion() {
     </button>
     `;
 
-    cadastrarPontuacao();
+    
     
     answers.appendChild(div);
   });
@@ -85,7 +95,7 @@ function cadastrarPontuacao() {
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
-       
+        window.location.href = "../dashboard/dashboard.html";
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
       }
@@ -97,5 +107,7 @@ function cadastrarPontuacao() {
 
   return false;
 }
+
+console.log(btnRestart)
 
 loadQuestion();
