@@ -8,6 +8,11 @@
 </head>
 <body>
     <div id="content">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+              <span id="mensagem_erro"></span>
+            </div>
+          </div>
         <section id="home" class="home">
             <header class="header">
                 <nav class="nav">
@@ -53,6 +58,7 @@
                     </div>
                   </div>
             </div>
+            <div id="div_erros_login"></div>
 </body>
 </html>
 
@@ -68,17 +74,12 @@ function entrar() {
     var senhaVar = senha_input.value;
 
     if (emailVar == "" || senhaVar == "") {
-        // finalizarAguardar();
+        cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
 
-        // Exibir mensagens de erro para campos vazios
-        if (emailVar == "") {
-            alert("O campo de e-mail não pode estar vazio.");
-        }
-        if (senhaVar == "") {
-            alert("O campo de senha não pode estar vazio.");
-        }
-
-        return false;
+      finalizarAguardar();
+      return false;
     }
     
     console.log("FORM LOGIN: ", emailVar);

@@ -195,3 +195,29 @@ html {
   .register-link p a:hover {
     text-decoration: underline;
   }
+
+  /*ERRO*/
+  .alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    width: 230px;
+    position: fixed;
+    border-radius: 15px;
+    border: #ffffff 1px solid;
+    padding: 10px;
+    margin-right: 10%;
+    position: absolute;
+    margin-top: 6%;
+    margin-right: 25%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }

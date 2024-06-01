@@ -12,7 +12,7 @@ function cadastrarPontuacao(req, res) {
         quizModel.cadastrarPontuacao(idUsuario, qtdAcertos)
             .then(
                 function (resultado) {
-                    res.json(resultado);
+                    res.json(resultado);   
                 }
             ).catch(
                 function (erro) {
