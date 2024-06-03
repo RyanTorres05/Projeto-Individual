@@ -55,17 +55,39 @@
         </div>
 
         <div class="dash">
-            <h1>Quantidade de acertos dos usuários</h1>
+            <h1>Quantidade de acertos</h1>
             <div id="alerta">
             </div>
 
             <div class="btns-dash" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
+            <div class="kpis">
+                <div class="kpi1">
+                    <p>
+                        Se seus pontos foram menos que 4 <br>
+                        você não é um fã do <br>Yunk Vino -_-
+                    </p>
+                </div>
+                <div class="kpi2">
+                    <p>
+                        Se seus pontos foram entre 5 e 7 <br>
+                        você conhece muito bem o <br>Yunk Vino
+                    </p>
+                </div>
+                <div class="kpi3">
+                    <p>
+                        Se você acertou todas as questões <br>
+                        PARABÉNS!! você é um grande fã do Yunk Vino
+                    </p>
+                </div>
+                
+            </div>
             <div id="graficos">
                 
                 <canvas id="myChartCanvas"></canvas>
             </div>
+           
             </div>
         </div>
     </div>
@@ -105,7 +127,7 @@
                 min = 8 - max
             });
             setTimeout(function() {
-            let labels = ["Certas", "Erradas"];
+            let labels = ["Respostas Certas", "Respostas Erradas"];
 
 // Criando estrutura para plotar gráfico - dados
     let dados = {
@@ -117,8 +139,8 @@
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1,
             backgroundColor: [
-                'rgba(54, 162, 235, 0.5)', // Cor para respostas certas
-                'rgba(255, 99, 132, 0.5)', // Cor para respostas erradas
+                'rgba(33, 170, 28)', // Cor para respostas certas
+                'rgba(255, 0, 0)', // Cor para respostas erradas
             ],
             borderColor: [
                 'rgba(54, 162, 235, 1)',

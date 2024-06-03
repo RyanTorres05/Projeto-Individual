@@ -368,6 +368,7 @@ canvas {
 .dash h1 {
   text-align: center;
   color: #ffffff;
+  margin-top: 5px;
 }
 
 .hello {
@@ -379,7 +380,7 @@ canvas {
 .hello h3 {
   color: #ffffff;
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 26px;
 }
 
 .hello h3 span {
@@ -427,4 +428,52 @@ canvas {
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
+}
+
+.kpis {
+  height: 110px;
+  width: 900px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 13%;
+
+}
+
+.kpi1{
+  background-color: black;
+  height: 100px;
+  width: 275px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.kpi2{
+  background-color: black;
+  height: 100px;
+  width: 275px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.kpi3{
+  background-color: black;
+  height: 100px;
+  width: 275px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.myChartCanvas {
+  margin: auto;
+  height: 5vh;
+  width: 5vw;
 }

@@ -80,7 +80,7 @@
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "Todos campos devem estar preenchidos";
 
       finalizarAguardar();
       return false;
@@ -91,7 +91,7 @@
     if (nomeVar.length <= 3) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "Seu nome tem que ter mais que 3 caracteres";
+        "Seu nome tem que ter mais que 2 letras";
 
       finalizarAguardar();
       return false;
@@ -103,16 +103,16 @@
     
     if (emailVar.indexOf("@") === -1 || emailVar.indexOf(".") === -1) {
     cardErro.style.display = "block";
-    mensagem_erro.innerHTML = "(Mensagem de erro para email inválido)";
+    mensagem_erro.innerHTML = "Digite um email valido";
     finalizarAguardar();
     return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
 
-    if (senhaVar.length < 5) {
+    if (senhaVar.length <= 5) {
     cardErro.style.display = "block";
-    mensagem_erro.innerHTML = "(Sua senha deve conter no mínimo 5 caracteres)";
+    mensagem_erro.innerHTML = "Sua senha deve conter no mínimo 5 caracteres";
     finalizarAguardar();
     return false;
     } else {

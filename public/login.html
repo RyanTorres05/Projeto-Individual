@@ -76,7 +76,7 @@ function entrar() {
     if (emailVar == "" || senhaVar == "") {
         cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "Todos os campos devem estar preenchidos";
 
       finalizarAguardar();
       return false;
@@ -88,7 +88,7 @@ function entrar() {
     if (emailVar.indexOf("@") === -1 || emailVar.indexOf(".") === -1) {
 
         cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para email inválido)";
+        mensagem_erro.innerHTML = "Email invalido";
         finalizarAguardar();
         return false;
     } else {
@@ -98,11 +98,11 @@ function entrar() {
     if (senhaVar.length < 5) {
 
         cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Sua senha deve conter no mínimo 5 caracteres)";
+        mensagem_erro.innerHTML = "Sua senha deve conter no mínimo 5 caracteres";
         finalizarAguardar();
         return false;
     } else {
-      setInterval(sumirMensagem, 5000);
+      setInterval(sumirMensagem, 10000);
     }
 
 

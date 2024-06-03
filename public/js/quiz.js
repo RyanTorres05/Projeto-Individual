@@ -44,7 +44,7 @@ function nextQuestion(e) {
 
 
 function finish() {
-  textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${questions.length} `;
+  textFinish.innerHTML = `Clique em finalizar para ver seus pontos`;
   content.style.display = "none";
   contentFinish.style.display = "flex";
 }
