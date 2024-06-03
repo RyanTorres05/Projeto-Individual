@@ -19,6 +19,7 @@ var app = express();
 var usuarioRouter = require("./src/routes/usuarios");
 var quizRouter = require("./src/routes/quizroutes");
 var medidasRouter = require("./src/routes/medidas");
+var dashboardRouter = require("./src/routes/dashboard");
 // var aquariosRouter = require("./src/routes/aquarios");
 // var empresasRouter = require("./src/routes/empresas");
 
@@ -32,6 +33,7 @@ app.use(cors());
 app.use("/usuarios", usuarioRouter);
 app.use("/quizroutes", quizRouter);
 app.use("/medidas", medidasRouter);
+app.use("/dashboard", dashboardRouter);
 // app.use("/aquarios", aquariosRouter);
 // app.use("/empresas", empresasRouter);
 

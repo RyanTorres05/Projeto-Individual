@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- scripts do Chart.js - 2022-1 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 
     <!--FONT AWESOME-->
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
@@ -79,110 +79,58 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    var resposta = [
-        {
-          qtdAcertos: 0,
-          quantidade: 4,
-        },
-        {
-          qtdAcertos: 1,
-          quantidade: 1,
-        },
-        {
-          qtdAcertos: 2,
-          quantidade: 8,
-        },
-        {
-          qtdAcertos: 3,
-          quantidade: 7,
-        },
-        {
-          qtdAcertos: 4,
-          quantidade: 11,
-        },
-        {
-          qtdAcertos: 5,
-          quantidade: 9,
-        },
-        {
-          qtdAcertos: 6,
-          quantidade: 34,
-        },
-        {
-            qtdAcertos: 7,
-          quantidade: 15,
-        },
-        {
-          qtdAcertos: 8,
-          quantidade: 10,
-        },
-      ];
+    var max = 0
+    var min = 0
 
-    function plotarGrafico(resposta) {
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: [],
-            datasets: [
-            {
-                data: [],
-                borderWidth: 1,
-                backgroundColor: [
-                    'purple',
-                    'red',
-                    'blue',
-                    'white',
-                    'black',
-                    'pink',
-                    'orange',
-                    'yellow',
-                    'green',
-                ]
-            }    
-        ]
-        };
+    console.log(sessionStorage.ID_USUARIO)
 
+    fetch("/dashboard/acertos", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuario: sessionStorage.ID_USUARIO
+            
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
 
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            console.log("olá",registro)
-            if(registro.qtdAcertos == 0){
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 0")
-            } else if (registro.qtdAcertos == 1) {
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 1")
-            } else if (registro.qtdAcertos == 2) {
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 2")
-            } else if (registro.qtdAcertos == 3) {
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 3")
-            } else if (registro.qtdAcertos == 4) {
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 4")
-            } else if (registro.qtdAcertos == 5) {
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 5")
-            } else if (registro.qtdAcertos == 6) {
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 6")
-            } else if (registro.qtdAcertos == 7) {
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 7")
-            } else if (registro.qtdAcertos == 8) {
-                dados.datasets[0].data.push(registro.quantidade);
-                dados.labels.push("Acertos 8")
-            } 
-          
-        }
+        if (resposta.ok) {
+        
+            
+            resposta.json().then(json => {
+                max = parseInt(json.valorMax)
+                console.log(max)
+                min = 8 - max
+            });
+            setTimeout(function() {
+            let labels = ["Certas", "Erradas"];
 
+// Criando estrutura para plotar gráfico - dados
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Acertos',
+            data: [max, min],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.5)', // Cor para respostas certas
+                'rgba(255, 99, 132, 0.5)', // Cor para respostas erradas
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255,99,132,1)',
+            ],
+            borderWidth: 1
+        }],
+    };
 
-        // Criando estrutura para plotar gráfico - config
-        const config = {
+    const config = {
             type: 'pie',
             data: dados,
-             responsive: true,
         };
 
         // Adicionando gráfico criado em div na tela
@@ -190,9 +138,15 @@
             document.getElementById(`myChartCanvas`),
             config
         );
+            }, 1000);
 
-        
-    }
-    plotarGrafico(resposta)
+
+
+        } 
+
+    }).catch(function (erro) {
+        console.log(erro);
+        alert("Ocorreu um erro ao tentar realizar o login. Por favor, tente novamente mais tarde.");
+    })
 
 </script>

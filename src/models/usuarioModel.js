@@ -1,3 +1,4 @@
+
 var database = require("../database/config")
 
 function autenticar(email, senha) {
@@ -7,6 +8,19 @@ function autenticar(email, senha) {
     
     return database.executar(instrucaoSql);
 }
+
+function pegarAcertos(idUsuario) {
+    var instrucaoSql = `
+    SELECT u.nome, MAX(p.qtdAcertos) AS maxAcertos
+    FROM usuario u
+    JOIN pontuacao p ON u.idUsuario = p.fkUsuario
+    where u.idUsuario = ${idUsuario}
+    GROUP BY u.idUsuario, u.nome;
+    `;
+    
+    return database.executar(instrucaoSql);
+}
+
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function cadastrar(nome, email, senha) {
@@ -23,5 +37,6 @@ function cadastrar(nome, email, senha) {
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    pegarAcertos
 };

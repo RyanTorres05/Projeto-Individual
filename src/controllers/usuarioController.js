@@ -1,5 +1,40 @@
 var usuarioModel = require("../models/usuarioModel");
 
+function pegarAcertos(req,res){
+    console.log(req.body.idUsuario)
+
+    let idUsuario = req.body.idUsuario;
+    usuarioModel.pegarAcertos(idUsuario)
+            .then(
+                function (resultadoAcertos) {
+                    console.log(`\nResultados encontrados: ${resultadoAcertos.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultadoAcertos)}`); // transforma JSON em String
+                    
+                    if (resultadoAcertos.length == 1) {
+                        console.log(resultadoAcertos);
+
+                        console.log(resultadoAcertos[0]);
+                        res.json({
+                            valorMax: resultadoAcertos[0].maxAcertos,
+                        });
+
+
+                    } else if (resultadoAcertos.length == 0) {
+                        res.status(403).send("Email e/ou senha inválido(s)");
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+}
+
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -83,5 +118,6 @@ function cadastrar(req, res) {
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    pegarAcertos
 }
