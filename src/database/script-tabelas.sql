@@ -10,33 +10,31 @@ senha varchar(45)
 
 create table quiz (
 idQuiz int primary key,
-nomeQuiz varchar(45)
+nomeQuiz varchar(45),
+qtdQuestoes int
 );
+
+select * from quiz;
+
+insert into quiz values
+(1, 'Quiz Yunk Vino', 8);
 
 create table pontuacao (
 idPontuacao int auto_increment,
-fkIdQuiz int,
-fkidUsuario int,
-dataPontos date,
-pontuacao int,
-primary key (idPontuacao, fkIdQuiz, fkIdUsuario),
-foreign key (fkIdQuiz) references quiz(idQuiz),
-foreign key (fkIdUsuario) references usuario(idUsuario)
+fkQuiz int,
+fkUsuario int,
+dataHora datetime,
+qtdAcertos int,
+primary key (idPontuacao, fkQuiz, fkUsuario),
+foreign key (fkQuiz) references quiz(idQuiz),
+foreign key (fkUsuario) references usuario(idUsuario)
 );
 
-create table pergunta (
-idPergunta int primary key auto_increment,
-descricao varchar(45),
-resposta varchar(45),
-fkIdQuiz int,
-foreign key (fkIdQuiz) references quiz(idQuiz)
-);
+select u.nome, MAX(p.qtdAcertos) AS maxAcertos
+FROM usuario u
+JOIN pontuacao p ON u.idUsuario = p.fkUsuario
+where u.idUsuario = 1
+GROUP BY u.idUsuario, u.nome;
 
-create table alternativa (
-idAlternativa int,
-descricao varchar(45),
-fkPergunta int,
-foreign key (fkPergunta) references pergunta(idPergunta)
-);
-
+select * from pontuacao;
 select * from usuario;

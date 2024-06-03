@@ -144,7 +144,7 @@ function entrar() {
             });
 
         } else {
-            alert("Houve um erro ao tentar realizar o login.");
+           
             console.log("Houve um erro ao tentar realizar o login!");
 
             resposta.text().then(texto => {
@@ -155,7 +155,7 @@ function entrar() {
 
     }).catch(function (erro) {
         console.log(erro);
-        alert("Ocorreu um erro ao tentar realizar o login. Por favor, tente novamente mais tarde.");
+       
     })
 
     return false;
